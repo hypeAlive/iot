@@ -183,15 +183,8 @@ float lux_read_sensor_value() {
     uint16_t ch0 = (data0_high << 8) | data0_low;
     uint16_t ch1 = (data1_high << 8) | data1_low;
 
-    // Logge die Rohwerte von DATA0 und DATA1
-    printf("DATA0 = 0x%04X (High: 0x%02X, Low: 0x%02X)\n", ch0, data0_high, data0_low);
-    printf("DATA1 = 0x%04X (High: 0x%02X, Low: 0x%02X)\n", ch1, data1_high, data1_low);
-
     // Berechne Lux-Wert
     float lux = lux_calculate(ch0, ch1);
-
-    // Logge den berechneten Lux-Wert
-    printf("Calculated Lux: %.2f\n", lux);
 
     return lux;
 }
